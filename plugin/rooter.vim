@@ -11,7 +11,6 @@ let g:loaded_rooter = 1
 " Turn off autochdir.  If you're using this plugin then you don't want it.
 if exists('+autochdir') && &autochdir
   set noautochdir
-  echom 'vim-rooter: set noautochdir'
 endif
 
 " User configuration {{{
@@ -128,10 +127,11 @@ endfunction
 
 " Mappings and commands {{{
 
-if !get(g:, 'rooter_disable_map', 0) && !hasmapto('<Plug>RooterChangeToRootDirectory')
-  map <silent> <unique> <Leader>cd <Plug>RooterChangeToRootDirectory
-  sunmap <silent> <unique> <Leader>cd
-endif
+"if !get(g:, 'rooter_disable_map', 0) && !hasmapto('<Plug>RooterChangeToRootDirectory')
+"  map <silent> <unique> <Leader>cd <Plug>RooterChangeToRootDirectory
+"  sunmap <silent> <unique> <Leader>cd
+"endif
+
 noremap <unique> <script> <Plug>RooterChangeToRootDirectory <SID>ChangeToRootDirectory
 noremap <SID>ChangeToRootDirectory :call <SID>ChangeToRootDirectory()<CR>
 
